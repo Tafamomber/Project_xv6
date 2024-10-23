@@ -7,6 +7,20 @@
 #include "proc.h"
 
 uint64
+sys_getfilenum(void)
+{
+  struct proc *p = myproc();  
+  int file_count = 0;
+
+
+  for (int i = 0; i < NOFILE; i++) {
+    if (p->ofile[i] != 0) {
+      file_count++;  
+    }
+  }
+
+  return file_count; 
+}
 sys_exit(void)
 {
   int n;
