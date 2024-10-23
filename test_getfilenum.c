@@ -4,7 +4,6 @@
 #include "fcntl.h"
 
 int main(void) {
-    int pid = getpid();  // Get the current process's pid
     int fd1, fd2, fd3;
 
     // Open a few files
@@ -14,7 +13,7 @@ int main(void) {
 
     // Call the new system call to get the number of open files
     int num_files = getfilenum(pid);
-    printf(1, "Process %d has %d open files.\n", pid, num_files);
+    printf(1, "Process %d has %d open files.\n", num_files);
 
     // Close the files
     close(fd1);
